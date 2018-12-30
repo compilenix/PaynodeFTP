@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace WebApplication2.DataAccess
+namespace PaynodeFTP.DataAccess
 {
     public class DataAccessContext : DbContext
     {
@@ -8,7 +8,7 @@ namespace WebApplication2.DataAccess
             : base(options)
         {
         }
-        
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 //            optionsBuilder.UseSqlServer();

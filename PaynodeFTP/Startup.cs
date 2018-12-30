@@ -6,9 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Swagger;
-using WebApplication2.DataAccess;
+using PaynodeFTP.DataAccess;
 
-namespace WebApplication2
+namespace PaynodeFTP
 {
     public class Startup
     {
@@ -38,7 +38,7 @@ namespace WebApplication2
 #endif
                 });
 
-            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info {Title = "API", Version = "v1"}); });
+            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info {Title = "PaynodeFTP API", Version = "v1"}); });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,7 +57,7 @@ namespace WebApplication2
             app.UseHttpsRedirection();
             app.UseMvc();
             app.UseSwagger();
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1"); });
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "PaynodeFTP API V1"); });
         }
     }
 }

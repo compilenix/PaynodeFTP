@@ -2,7 +2,7 @@ using System;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 
-namespace WebApplication2.DataAccess
+namespace PaynodeFTP.DataAccess
 {
     public static class DbModelBuilderExtensions
     {
@@ -11,7 +11,7 @@ namespace WebApplication2.DataAccess
             public bool IsSpecifiedGenericType { get; set; }
             public Type[] GenericTypeArguments { get; set; }
         }
-        
+
         private static SubclassOfGenericResult IsSubclassOfGeneric(Type generic, Type toCheck) {
             while (toCheck != null && toCheck != typeof(object)) {
                 var cur = toCheck.IsGenericType ? toCheck.GetGenericTypeDefinition() : toCheck;
@@ -24,25 +24,25 @@ namespace WebApplication2.DataAccess
                 }
                 toCheck = toCheck.BaseType;
             }
-            
+
             return new SubclassOfGenericResult
             {
                 IsSpecifiedGenericType = false,
                 GenericTypeArguments = new Type[0]
             };
         }
-        
+
         public static void AddEntitiesFromAssembly(this ModelBuilder modelBuilder, Assembly assembly)
         {
             SubclassOfGenericResult result = null;
-            
+
             foreach (var type in assembly.GetTypes())
             {
                 if (!type.IsClass) continue;
 
                 result = IsSubclassOfGeneric(typeof(EntityTypeConfiguration<>), type);
                 if (!result.IsSpecifiedGenericType) continue;
-                
+
                 var entityTypeConfiguration = Activator.CreateInstance(type) as IEntityTypeConfiguration;
                 // TODO: add checks
                 entityTypeConfiguration.RegisterEntityOnModel(modelBuilder);

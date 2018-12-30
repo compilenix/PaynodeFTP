@@ -2,7 +2,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace WebApplication2.DataAccess
+namespace PaynodeFTP.DataAccess
 {
     public class EntityTypeConfiguration<T> : IEntityTypeConfiguration
         where T : class
@@ -20,7 +20,7 @@ namespace WebApplication2.DataAccess
         public void RegisterEntityOnModel(ModelBuilder builder)
         {
             if (builder == null) throw new ArgumentException(nameof(builder));
-            
+
             Builder = builder.Entity<T>();
         }
     }

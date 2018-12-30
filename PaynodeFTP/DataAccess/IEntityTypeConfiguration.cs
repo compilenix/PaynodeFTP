@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace WebApplication2.DataAccess
+namespace PaynodeFTP.DataAccess
 {
     public interface IEntityTypeConfiguration
     {

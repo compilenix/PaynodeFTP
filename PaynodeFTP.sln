@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{DAE5ADAB-B208-4E00-B68E-3C5FA5189047}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaynodeFTP", "PaynodeFTP\PaynodeFTP.csproj", "{DAE5ADAB-B208-4E00-B68E-3C5FA5189047}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
